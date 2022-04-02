@@ -20,7 +20,7 @@ test_data_ratio = st.sidebar.slider('Select testing size or ratio',
                                     max_value = 0.50,
                                     value=0.2)
 n_estimators = st.sidebar.slider('Choose number of trees', 1, 1000,value=100)
-max_depth = st.sidebar.slider('Choose number of levels', 1, 10,value=30)
+max_depth = st.sidebar.slider('Choose number of levels', 1, 30,value=10)
 
 
 titanic_data = pd.read_csv('titanic.csv')
@@ -43,7 +43,7 @@ y = titanic_data['Survived']
 from sklearn.model_selection import train_test_split
 
 
-Xtrain, Xtest, ytrain, ytest = train_test_split(X, y,random_state=1234,test_size=0.2)
+Xtrain, Xtest, ytrain, ytest = train_test_split(X, y,random_state=1234,test_size=test_data_ratio)
 
 
 from sklearn.ensemble import RandomForestClassifier
